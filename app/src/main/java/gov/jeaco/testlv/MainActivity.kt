@@ -12,6 +12,8 @@ class MainActivity : ComponentActivity() {
 
         val binding = DataBindingUtil.setContentView<MainBinding>(this, R.layout.main)
         binding.vm = AppVm()
+        binding.executePendingBindings()
+        val root = binding.root;
     }
 }
 
