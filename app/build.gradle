@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'gov.jeaco.testlv'
+    namespace 'com.test.testlv'
     compileSdk 33
 
     defaultConfig {
-        applicationId "gov.jeaco.testlv"
+        applicationId "com.test.testlv"
         minSdk 25
         targetSdk 33
         versionCode 1
@@ -51,12 +51,7 @@ android {
 
 dependencies {
 
-    implementation('me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:4.0.0')
-    implementation('me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-viewpager2:4.0.0')
-
     implementation('com.google.android.material:material:1.7.0')
-    implementation group: 'com.google.guava', name: 'guava', version: "29.0-jre"
-
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'

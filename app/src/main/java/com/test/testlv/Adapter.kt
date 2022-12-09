@@ -1,13 +1,16 @@
-package gov.jeaco.testlv
+package com.test.testlv
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.activity.ComponentActivity
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import gov.jeaco.testlv.databinding.PageaBinding
-import gov.jeaco.testlv.databinding.PagebBinding
+import com.test.testlv.databinding.PageaBinding
+import com.test.testlv.databinding.PagebBinding
 
+/**
+ * Adapter for the viewpager
+ */
 class Adapter(val pages: List<Any>, val context: ComponentActivity) :
     RecyclerView.Adapter<Holder>() {
 
@@ -18,6 +21,7 @@ class Adapter(val pages: List<Any>, val context: ComponentActivity) :
             when (viewType) {
                 0 -> PageaBinding.inflate(LayoutInflater.from(context), parent, false).also {
                     it.lifecycleOwner = context
+                    it.list.adapter = (pages[0] as PageA).adapter
                 }
                 else -> PagebBinding.inflate(LayoutInflater.from(context), parent, false).also {
                     it.lifecycleOwner = context

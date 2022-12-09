@@ -1,4 +1,4 @@
-package gov.jeaco.testlv.ui.theme
+package com.test.testlv.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
