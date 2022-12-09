@@ -12,6 +12,13 @@ class MainActivity : ComponentActivity() {
 
         val binding = DataBindingUtil.setContentView<MainBinding>(this, R.layout.main)
         binding.vm = AppVm()
+
+        val pagea = PageA()
+        val pages = listOf(pagea, PageB(pagea))
+
+        val adapter = Adapter(pages, this)
+        binding.tabPager.adapter = adapter
+
         binding.executePendingBindings()
         val root = binding.root;
     }
