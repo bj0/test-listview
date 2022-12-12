@@ -1,16 +1,16 @@
 package com.test.testlv
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import androidx.activity.ComponentActivity
 import com.test.testlv.databinding.ItemBinding
 
 /**
  * Adapter for the listview
  */
-class LvAdapter(val context: Context) : BaseAdapter() {
+class LvAdapter(val context: ComponentActivity) : BaseAdapter() {
 
     val list = mutableListOf<String>()
 
@@ -22,6 +22,7 @@ class LvAdapter(val context: Context) : BaseAdapter() {
 
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
         val binding = ItemBinding.inflate(LayoutInflater.from(context), p2, false)
+        binding.lifecycleOwner = context
         binding.vm = list[p0]
         return binding.root
     }

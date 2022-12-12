@@ -1,8 +1,8 @@
 package com.test.testlv
 
-import android.content.Context
+import androidx.activity.ComponentActivity
 
-class PageA(val context: Context) {
+class PageA(val context: ComponentActivity) {
 
     val adapter = LvAdapter(context)
 
