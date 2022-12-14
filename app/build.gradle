@@ -51,7 +51,9 @@ android {
 
 dependencies {
 
-    
+
+    implementation('io.github.microutils:kotlin-logging-jvm:2.1.20')
+    implementation 'com.gitlab.mvysny.slf4j:slf4j-handroid:2.0.0'
 
     implementation('me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:4.0.0')
     implementation('me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-viewpager2:4.0.0')
