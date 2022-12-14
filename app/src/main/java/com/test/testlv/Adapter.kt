@@ -7,6 +7,9 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.test.testlv.databinding.PageaBinding
 import com.test.testlv.databinding.PagebBinding
+import mu.KotlinLogging
+
+private val logger = KotlinLogging.logger {}
 
 /**
  * Adapter for the viewpager
@@ -30,15 +33,26 @@ class Adapter(val pages: List<Any>, val context: ComponentActivity) :
         )
     }
 
+    override fun onViewAttachedToWindow(holder: Holder) {
+        super.onViewAttachedToWindow(holder)
+        logger.warn { "ova $holder" }
+//        holder.binding.root.requestFocus()
+//        (holder.binding as? PageaBinding)?.list?.let {
+//            logger.warn { "refresh" }
+//            it.requestLayout()
+//        }
+    }
+
     override fun onBindViewHolder(holder: Holder, position: Int) {
+        logger.warn { "bind $position, $holder" }
         when (position) {
             0 -> (holder.binding as PageaBinding).vm = pages[0] as PageA
             1 -> (holder.binding as PagebBinding).vm = pages[1] as PageB
         }
+//        holder.binding.invalidateAll()
     }
 
     override fun getItemCount(): Int = pages.size
-
 }
 
 class Holder(val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root)
