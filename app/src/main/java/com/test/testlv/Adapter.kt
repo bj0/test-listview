@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.activity.ComponentActivity
 import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.test.testlv.databinding.PageaBinding
 import com.test.testlv.databinding.PagebBinding
@@ -25,6 +26,12 @@ class Adapter(val pages: List<Any>, val context: ComponentActivity) :
                 0 -> PageaBinding.inflate(LayoutInflater.from(context), parent, false).also {
                     it.lifecycleOwner = context
                     it.list.adapter = (pages[0] as PageA).adapter
+                    it.list.addItemDecoration(
+                        DividerItemDecoration(
+                            context,
+                            DividerItemDecoration.VERTICAL
+                        )
+                    )
                 }
                 else -> PagebBinding.inflate(LayoutInflater.from(context), parent, false).also {
                     it.lifecycleOwner = context
